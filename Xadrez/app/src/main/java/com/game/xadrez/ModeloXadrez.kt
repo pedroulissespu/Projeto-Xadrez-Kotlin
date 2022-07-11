@@ -1,6 +1,11 @@
 package com.game.xadrez
 
 class ModeloXadrez {
+    var espacopeca = mutableSetOf<PecaXadrez>()
+
+    init{
+        espacopeca.add(PecaXadrez(0,0,Player.WHITE, Rank.TORRE))
+    }
 
     override fun toString(): String{
         var descricao = " \n"
