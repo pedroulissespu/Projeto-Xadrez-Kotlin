@@ -5,6 +5,6 @@ enum class Rank {
     RAINHA,
     BISPO,
     TORRE,
-    CAVALEIRO,
+    CAVALO,
     PEÃO
 }
