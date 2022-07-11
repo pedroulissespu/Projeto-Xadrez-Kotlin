@@ -4,8 +4,32 @@ class ModeloXadrez {
     var espacopeca = mutableSetOf<PecaXadrez>()
 
     init{
-        espacopeca.add(PecaXadrez(0,0,Player.WHITE, Rank.TORRE))
-        espacopeca.add(PecaXadrez(0,7,Player.BLACK, Rank.TORRE))
+        reset()
+    }
+
+    private fun reset(){
+        espacopeca.removeAll(espacopeca)
+        for(i in 0..1) {
+            espacopeca.add(PecaXadrez(0+i*7, 0, Player.WHITE, Rank.TORRE))
+            espacopeca.add(PecaXadrez(0+i*7, 7, Player.BLACK, Rank.TORRE))
+
+            espacopeca.add(PecaXadrez(1+i*5, 0, Player.WHITE, Rank.CAVALO))
+            espacopeca.add(PecaXadrez(1+i*5, 7, Player.BLACK, Rank.CAVALO))
+
+            espacopeca.add(PecaXadrez(2+i*3, 0, Player.WHITE, Rank.BISPO))
+            espacopeca.add(PecaXadrez(2+i*3, 7, Player.BLACK, Rank.BISPO))
+        }
+
+        for(i in 0..7){
+            espacopeca.add(PecaXadrez(i, 1, Player.WHITE, Rank.PEÃO))
+            espacopeca.add(PecaXadrez(i, 6, Player.BLACK, Rank.PEÃO))
+        }
+
+        espacopeca.add(PecaXadrez(3, 0, Player.WHITE, Rank.RAINHA))
+        espacopeca.add(PecaXadrez(3, 7, Player.BLACK, Rank.RAINHA))
+
+        espacopeca.add(PecaXadrez(4, 0, Player.WHITE, Rank.REI))
+        espacopeca.add(PecaXadrez(4, 7, Player.BLACK, Rank.REI))
     }
 
     private fun pieceAt(col: Int , row : Int) : PecaXadrez?{
@@ -28,7 +52,7 @@ class ModeloXadrez {
                     descricao += " ."
                 } else{
                     val white = piece.player == Player.WHITE
-                    descricao += ""
+                    descricao += " "
                     descricao += when(piece.rank) {
                         Rank.REI -> {
                             if(white) "k" else "K"
