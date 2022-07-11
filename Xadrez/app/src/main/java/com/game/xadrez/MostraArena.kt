@@ -32,9 +32,17 @@ class MostraArena(context: Context?, attrs: AttributeSet?) : View(context, attrs
 
     override fun onDraw(canvas: Canvas?){
         desenhaTabuleiroXadrez(canvas)
+        desenhaPecas(canvas)
+    }
 
-        val rainhaBrancaBitmap = bitmaps[R.drawable.chess_qlt60]!!
-        canvas?.drawBitmap(rainhaBrancaBitmap, null, Rect(0,0,600,600),paint)
+    private fun desenhaPecas(canvas: Canvas?){
+        drawPiecesAt(canvas,0,0,R.drawable.chess_rlt60)
+        drawPiecesAt(canvas,0,1,R.drawable.chess_plt60)
+    }
+
+    private fun drawPiecesAt(canvas : Canvas? , col: Int , row : Int , resID: Int){
+        val bitmap = bitmaps[resID]!!
+        canvas?.drawBitmap(bitmap, null, RectF(originX + col * cellSide,originY + (7 - row) * cellSide,originX + (col + 1) * cellSide,originY + ((7 - row) + 1) * cellSide),paint)
     }
 
     private fun carregaBitmaps(){
