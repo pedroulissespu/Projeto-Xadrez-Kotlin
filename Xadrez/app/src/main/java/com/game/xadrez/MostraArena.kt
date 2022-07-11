@@ -4,6 +4,7 @@ import android.view.View
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
+import android.view.Display
 
 class MostraArena(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
     private final val cellSide: Float = 130f
@@ -36,8 +37,17 @@ class MostraArena(context: Context?, attrs: AttributeSet?) : View(context, attrs
     }
 
     private fun desenhaPecas(canvas: Canvas?){
-        drawPiecesAt(canvas,0,0,R.drawable.chess_rlt60)
-        drawPiecesAt(canvas,0,1,R.drawable.chess_plt60)
+        val modeloXadrez = ModeloXadrez()
+        modeloXadrez.reset()
+
+        for (row in 0..7){
+            for (col in 0..7){
+                val piece = modeloXadrez.pieceAt(col,row)
+                if(piece != null){
+                    drawPiecesAt(canvas, col, row, piece.resID)
+                }
+            }
+        }
     }
 
     private fun drawPiecesAt(canvas : Canvas? , col: Int , row : Int , resID: Int){
