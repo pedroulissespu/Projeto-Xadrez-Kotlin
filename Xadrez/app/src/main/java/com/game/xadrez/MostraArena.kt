@@ -2,9 +2,7 @@ package com.game.xadrez
 
 import android.view.View
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
+import android.graphics.*
 import android.util.AttributeSet
 
 class MostraArena(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
@@ -26,5 +24,8 @@ class MostraArena(context: Context?, attrs: AttributeSet?) : View(context, attrs
                 )
             }
         }
+
+        val rainhaBrancaBitmap = BitmapFactory.decodeResource(resources,R.drawable.chess_qlt60)
+        canvas?.drawBitmap(rainhaBrancaBitmap, null, Rect(0,0,600,600),paint)
     }
 }
