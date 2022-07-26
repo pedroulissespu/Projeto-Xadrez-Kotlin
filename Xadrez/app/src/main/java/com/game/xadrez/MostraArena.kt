@@ -48,6 +48,7 @@ class MostraArena(context: Context?, attrs: AttributeSet?) : View(context, attrs
                 if(piece != null){
                     drawPiecesAt(canvas, col, row, piece.resID)
                 }
+                modeloXadrez.pieceAt(col, row).let  {  }
             }
         }
     }
