@@ -1,3 +1,6 @@
+package com.game.xadrez
+import kotlin.math.abs
+
 object ChessGame {
     private var piecesBox = mutableSetOf<ChessPiece>()
 
