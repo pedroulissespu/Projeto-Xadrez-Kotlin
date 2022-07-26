@@ -15,18 +15,18 @@ class ChessView(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
     private val lightColor = Color.parseColor("#EEEEEE")
     private val darkColor = Color.parseColor("#BBBBBB")
     private val imgResIDs = setOf(
-        R.drawable.bishop_black,
-        R.drawable.bishop_white,
-        R.drawable.king_black,
-        R.drawable.king_white,
-        R.drawable.queen_black,
-        R.drawable.queen_white,
-        R.drawable.rook_black,
-        R.drawable.rook_white,
-        R.drawable.knight_black,
-        R.drawable.knight_white,
-        R.drawable.pawn_black,
-        R.drawable.pawn_white,
+        R.drawable.chess_bdt60,
+        R.drawable.chess_blt60,
+        R.drawable.chess_kdt60,
+        R.drawable.chess_klt60,
+        R.drawable.chess_qdt60,
+        R.drawable.chess_qlt60,
+        R.drawable.chess_rdt60,
+        R.drawable.chess_rlt60,
+        R.drawable.chess_ndt60,
+        R.drawable.chess_nlt60,
+        R.drawable.chess_pdt60,
+        R.drawable.chess_plt60,
     )
     private val bitmaps = mutableMapOf<Int, Bitmap>()
     private val paint = Paint()
