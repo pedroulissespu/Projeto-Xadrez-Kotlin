@@ -10,6 +10,8 @@ class MostraArena(context: Context?, attrs: AttributeSet?) : View(context, attrs
     private final val cellSide: Float = 130f
     private final val originX = 20f
     private final val originY = 200f
+    private final val corBranca = Color.argb(1f,.4f,.4f,.4f)
+    private final val corPreta = Color.argb(1f,.5f,.5f,.5f)
     private final val imgResIDs = setOf(
         R.drawable.chess_rdt60,
         R.drawable.chess_rlt60,
@@ -23,7 +25,7 @@ class MostraArena(context: Context?, attrs: AttributeSet?) : View(context, attrs
         R.drawable.chess_kdt60,
         R.drawable.chess_blt60,
         R.drawable.chess_bdt60
-        )
+    )
     private final val bitmaps = mutableMapOf<Int, Bitmap>()
     private final val paint = Paint()
 
@@ -65,7 +67,7 @@ class MostraArena(context: Context?, attrs: AttributeSet?) : View(context, attrs
         val paint = Paint()
         for(i in 0..7) {
             for (j in 0..7) {
-                paint.color = if((i + j) % 2 == 1) Color.DKGRAY else Color.LTGRAY
+                paint.color = if((i + j) % 2 == 1) corPreta else corBranca
                 canvas?.drawRect(
                     originX + i * cellSide,
                     originY + j * cellSide,
